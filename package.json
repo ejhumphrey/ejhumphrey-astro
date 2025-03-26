@@ -1,0 +1,19 @@
+{
+  "name": "ejhumphrey-astro",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.1",
+    "gh-pages": "^6.0.0",
+    "tailwindcss": "^3.4.17"
+  }
+}
