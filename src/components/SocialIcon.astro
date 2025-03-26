@@ -1,0 +1,39 @@
+---
+interface Props {
+  href?: string;
+  icon?: string;
+  name?: string;
+}
+
+const { icon, href, name } = Astro.props;
+
+const isUrl = icon && (icon.startsWith("http") || icon.startsWith("https"));
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="text-gray-600 hover:text-gray-800 transition-colors duration-300 group"
+  aria-label={name}
+>
+  {
+    isUrl ? (
+      <img
+        src={icon}
+        alt={name || "Icon"}
+        class="w-6 h-6 fill-current group-hover:scale-110 transition-transform"
+      />
+    ) : (
+      icon && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          class="w-6 h-6 fill-current group-hover:scale-110 transition-transform"
+        >
+          <path d={icon} />
+        </svg>
+      )
+    )
+  }
+</a>
