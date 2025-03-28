@@ -1,40 +1,29 @@
 ---
-import ExperienceCard from "../components/ExperienceCard.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-
-const experiences = [
-  {
-    company: "Peppy Health",
-    title: "SVP of Engineering",
-    period: "Aug 2023 – Present",
-    highlights: [
-      "Grew R&D team from 8 to 18 members with ~40% non-male / ~40% non-white representation",
-      "Architected benefits platform using Next.js, React, TypeScript, and Python FastAPI",
-    ],
-  },
-  {
-    company: "This One",
-    title: "Tech Lead & Lead Research Scientist",
-    period: "May 2022 – June 2023",
-    highlights: [
-      "Developed cutting-edge movie recommendation system outperforming published benchmarks",
-      "Managed 4-person engineering team, driving team performance and agile practices",
-    ],
-  },
-  {
-    company: "Spotify",
-    title: "Staff Research Scientist & ML Engineering Manager",
-    period: "March 2016 – January 2021",
-    highlights: [
-      "Scaled ML teams and drove advanced machine listening research",
-      "Co-founded Tech Research organization and accelerated ML infrastructure development",
-    ],
-  },
-];
 ---
 
 <MainLayout title="Experience">
   <h1 class="text-3xl font-bold mb-8">Professional Experience</h1>
-
-  {experiences.map((exp) => <ExperienceCard experience={exp} />)}
+  <p>Here you can find my resume (last updated: 2025-03-28).</p>
+  <div class="my-8 flex justify-center">
+    <a
+      href="/resume_20250324.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="block w-[50%] h-[650px] border border-gray-300 rounded-lg
+    overflow-hidden hover:shadow-lg transition-shadow duration-300"
+    >
+      <object
+        data="/resume_20250324.pdf"
+        type="application/pdf"
+        class="w-full h-full"
+      >
+        <p>
+          Your browser does not support PDF previews. <span class="text-accent"
+            >Click to view PDF</span
+          >
+        </p>
+      </object>
+    </a>
+  </div>
 </MainLayout>

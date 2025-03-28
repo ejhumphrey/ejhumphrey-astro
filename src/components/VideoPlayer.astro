@@ -1,0 +1,38 @@
+---
+interface Props {
+  src: string;
+  title: string;
+  type: "youtube" | "drive";
+}
+
+const { src, title, type } = Astro.props;
+
+// Convert YouTube URL to embed URL
+const getYouTubeEmbedUrl = (url: string) => {
+  const videoId = url.match(
+    /(?:youtu\.be\/|youtube\.com\/watch\?v=)([^&?]+)/,
+  )?.[1];
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+};
+
+// Convert Google Drive URL to embed URL
+const getDriveEmbedUrl = (url: string) => {
+  const fileId = url.match(/\/d\/([^\/]+)/)?.[1];
+  return fileId ? `https://drive.google.com/file/d/${fileId}/preview` : url;
+};
+
+const embedUrl =
+  type === "youtube" ? getYouTubeEmbedUrl(src) : getDriveEmbedUrl(src);
+---
+
+<div class="video-player bg-white rounded-lg shadow-md p-4">
+  <h3 class="text-lg font-semibold mb-3">{title}</h3>
+  <div class="relative pb-[56.25%] h-0">
+    <iframe
+      src={embedUrl}
+      class="absolute top-0 left-0 w-full h-full rounded-lg"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      title={title}></iframe>
+  </div>
+</div>

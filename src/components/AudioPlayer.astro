@@ -1,0 +1,19 @@
+---
+interface Props {
+  src: string;
+  title?: string;
+}
+
+const { src, title = "Audio Player" } = Astro.props;
+---
+
+<div class="audio-player bg-white rounded-lg shadow-md p-4 max-w-md">
+  <div class="text-sm font-medium text-gray-900 mb-2">{title}</div>
+  <audio
+    controls
+    class="w-full h-10 [&::-webkit-media-controls-panel]:bg-gray-100 [&::-webkit-media-controls-panel]:rounded-lg [&::-webkit-media-controls-current-time-display]:text-sm [&::-webkit-media-controls-time-remaining-display]:text-sm [&::-webkit-media-controls-mute-button]:rounded-full [&::-webkit-media-controls-play-button]:rounded-full [&::-webkit-media-controls-timeline]:rounded-full [&::-webkit-media-controls-volume-slider]:rounded-full [&::-webkit-media-controls-volume-slider-container]:rounded-full"
+  >
+    <source src={src} type="audio/mp4" />
+    Your browser does not support the audio element.
+  </audio>
+</div>
