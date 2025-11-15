@@ -5,24 +5,22 @@ import MainLayout from "../layouts/MainLayout.astro";
 <MainLayout title="Experience">
   <h1 class="text-3xl font-bold mb-8">Professional Experience</h1>
   <div class="my-8 flex justify-center">
-    <a
-      href="/ejhumphrey_20251009.pdf"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="block w-[50%] h-[650px] border border-gray-300 rounded-lg
-    overflow-hidden hover:shadow-lg transition-shadow duration-300"
+    <object
+      data="/ejhumphrey_20251114.pdf"
+      type="application/pdf"
+      class="block w-[100%] h-[650px] border border-gray-300 rounded-lg overflow-hidden"
     >
-      <object
-        data="/ejhumphrey_20251114.pdf"
-        type="application/pdf"
-        class="w-full h-full"
-      >
-        <p>
-          Your browser does not support PDF previews. <span class="text-accent"
-            >Click to view PDF</span
-          >
-        </p>
-      </object>
-    </a>
+      <p>
+        Your browser does not support PDF previews.
+        <a 
+          href="/ejhumphrey_20251114.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-accent hover:underline"
+        >
+          Click here to view the PDF instead.
+        </a>
+      </p>
+    </object>
   </div>
 </MainLayout>
